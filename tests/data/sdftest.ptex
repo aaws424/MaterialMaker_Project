@@ -1,0 +1,217 @@
+{
+ "name": "sdftest",
+ "label": "Graph",
+ "node_position": {
+  "x": 0,
+  "y": 0
+ },
+ "parameters": {},
+ "type": "graph",
+ "nodes": [
+  {
+   "name": "Material",
+   "node_position": {
+    "x": 687,
+    "y": 172
+   },
+   "parameters": {
+    "albedo_color": {
+     "a": 1,
+     "b": 1,
+     "g": 1,
+     "r": 1,
+     "type": "Color"
+    },
+    "ao_light_affect": 1,
+    "depth_scale": 1,
+    "emission_energy": 1,
+    "metallic": 1,
+    "normal_scale": 1,
+    "roughness": 1,
+    "size": 10,
+    "subsurf_scatter_strength": 0
+   },
+   "type": "material"
+  },
+  {
+   "name": "sdf_0",
+   "node_position": {
+    "x": 0,
+    "y": 0
+   },
+   "parameters": {},
+   "type": "sdf",
+   "node_parameters": [],
+   "sdf_scene": [
+    {
+     "type": "SmoothUnion",
+     "index": 1,
+     "parameters": {
+      "k": 1.5
+     },
+     "children": [
+      {
+       "type": "Circle",
+       "index": 2,
+       "parameters": {
+        "position_x": -0.15,
+        "radius": 0.25
+       },
+       "children": [
+        {
+         "type": "Albedo2D",
+         "index": 3,
+         "parameters": {},
+         "children": [
+          {
+           "type": "Uniform",
+           "index": 4,
+           "parameters": {
+            "color": {
+             "r": 1,
+             "g": 0.2,
+             "b": 0.1,
+             "a": 1
+            }
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "Box",
+       "index": 5,
+       "parameters": {
+        "position_x": 0.2,
+        "angle": 30,
+        "size_x": 0.2,
+        "size_y": 0.15
+       },
+       "children": [
+        {
+         "type": "Albedo2D",
+         "index": 6,
+         "parameters": {},
+         "children": [
+          {
+           "type": "Pattern",
+           "index": 7,
+           "parameters": {
+            "x_scale": 8,
+            "y_scale": 8
+           },
+           "children": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Star",
+     "index": 8,
+     "parameters": {
+      "position_y": 0.3,
+      "radius": 0.15
+     },
+     "children": []
+    }
+   ]
+  },
+  {
+   "name": "sdshow_0",
+   "node_position": {
+    "x": 200,
+    "y": 0
+   },
+   "parameters": {},
+   "type": "sdshow"
+  },
+  {
+   "name": "sdf_1",
+   "node_position": {
+    "x": 0,
+    "y": 300
+   },
+   "parameters": {},
+   "type": "sdf",
+   "node_parameters": [],
+   "sdf_scene": [
+    {
+     "type": "SmoothUnion3D",
+     "index": 1,
+     "parameters": {
+      "k": 2.0
+     },
+     "children": [
+      {
+       "type": "Torus",
+       "index": 2,
+       "parameters": {
+        "R": 0.3,
+        "r": 0.08,
+        "angle_x": 60
+       },
+       "children": []
+      },
+      {
+       "type": "Box3D",
+       "index": 3,
+       "parameters": {
+        "size_x": 0.15,
+        "size_y": 0.15,
+        "size_z": 0.15,
+        "angle_y": 45
+       },
+       "children": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "raymarching_0",
+   "node_position": {
+    "x": 200,
+    "y": 300
+   },
+   "parameters": {},
+   "type": "raymarching"
+  }
+ ],
+ "connections": [
+  {
+   "from": "sdf_0",
+   "from_port": 1,
+   "to": "Material",
+   "to_port": 0
+  },
+  {
+   "from": "sdf_0",
+   "from_port": 0,
+   "to": "sdshow_0",
+   "to_port": 0
+  },
+  {
+   "from": "sdshow_0",
+   "from_port": 0,
+   "to": "Material",
+   "to_port": 2
+  },
+  {
+   "from": "sdf_1",
+   "from_port": 0,
+   "to": "raymarching_0",
+   "to_port": 0
+  },
+  {
+   "from": "raymarching_0",
+   "from_port": 0,
+   "to": "Material",
+   "to_port": 1
+  }
+ ]
+}

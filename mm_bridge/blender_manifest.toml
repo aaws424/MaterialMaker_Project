@@ -1,0 +1,21 @@
+schema_version = "1.0.0"
+
+id = "mm_bridge"
+version = "0.1.0"
+name = "Material Maker Bridge"
+tagline = "Open Material Maker procedural materials and tweak them in Blender"
+maintainer = "Mohammad Essam"
+type = "add-on"
+
+blender_version_min = "4.2.0"
+
+license = ["SPDX:GPL-3.0-or-later"]
+copyright = [
+  "2026 Mohammad Essam",
+  "2018-2023 Rodolphe Suescun and contributors (Material Maker generator port, MIT)",
+]
+
+tags = ["Material", "Import-Export"]
+
+[permissions]
+files = "Read Material Maker node libraries and .ptex files, write generated textures"

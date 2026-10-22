@@ -1,0 +1,6 @@
+# Reference textures exported by Material Maker (264 MB); regenerate with tools/export_golden.py
+golden/
+
+__pycache__/
+*.pyc
+*.blend1

@@ -1,0 +1,108 @@
+{
+ "name": "filltest",
+ "label": "Graph",
+ "node_position": {
+  "x": 0,
+  "y": 0
+ },
+ "parameters": {},
+ "type": "graph",
+ "nodes": [
+  {
+   "name": "Material",
+   "node_position": {
+    "x": 687,
+    "y": 172
+   },
+   "parameters": {
+    "albedo_color": {
+     "a": 1,
+     "b": 1,
+     "g": 1,
+     "r": 1,
+     "type": "Color"
+    },
+    "ao_light_affect": 1,
+    "depth_scale": 1,
+    "emission_energy": 1,
+    "metallic": 1,
+    "normal_scale": 1,
+    "roughness": 1,
+    "size": 10,
+    "subsurf_scatter_strength": 0
+   },
+   "type": "material"
+  },
+  {
+   "name": "bricks_0",
+   "node_position": {
+    "x": 0,
+    "y": 0
+   },
+   "parameters": {},
+   "type": "bricks"
+  },
+  {
+   "name": "fill_0",
+   "node_position": {
+    "x": 200,
+    "y": 0
+   },
+   "parameters": {
+    "param0": 9,
+    "param1": 12
+   },
+   "type": "fill"
+  },
+  {
+   "name": "fill_to_position_0",
+   "node_position": {
+    "x": 400,
+    "y": 0
+   },
+   "parameters": {},
+   "type": "fill_to_position"
+  },
+  {
+   "name": "fill_to_size_0",
+   "node_position": {
+    "x": 400,
+    "y": 200
+   },
+   "parameters": {},
+   "type": "fill_to_size"
+  }
+ ],
+ "connections": [
+  {
+   "from": "bricks_0",
+   "from_port": 0,
+   "to": "fill_0",
+   "to_port": 0
+  },
+  {
+   "from": "fill_0",
+   "from_port": 0,
+   "to": "fill_to_position_0",
+   "to_port": 0
+  },
+  {
+   "from": "fill_0",
+   "from_port": 0,
+   "to": "fill_to_size_0",
+   "to_port": 0
+  },
+  {
+   "from": "fill_to_position_0",
+   "from_port": 0,
+   "to": "Material",
+   "to_port": 2
+  },
+  {
+   "from": "fill_to_size_0",
+   "from_port": 0,
+   "to": "Material",
+   "to_port": 1
+  }
+ ]
+}
